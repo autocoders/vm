@@ -60,10 +60,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # You will need to create the manifests directory and a manifest in
   # the file base.pp in the manifests_path directory.
  
-  config.vm.provision :shell, :inline => "install-rvm.sh",  :args => "stable"
-  config.vm.provision :shell, :inline => "install-ruby.sh", :args => "2.0.0 bundler"
-  config.vm.provision :shell, :inline => "install-rubymine.sh"
-  
+  config.vm.provision :shell, :path => "install-rvm.sh",  :args => "stable"
+  config.vm.provision :shell, :path => "install-ruby.sh", :args => "2.0.0 bundler"
+  config.vm.provision :shell, :path => "install-rubymine.sh"
+  config.vm.provision :shell, :path => "clone-selenium-sandpit.sh"
+
   # An example Puppet manifest to provision the message of the day:
   #
   # # group { "puppet":
